@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:itelectivesix/constants.dart';
 import 'package:flutter/gestures.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
-  static bool isChecked = false;
 
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool checkBoxValue = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,19 +102,15 @@ class LoginScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          SizedBox(
-                            width: 14,
-                            height: 14,
-                            child: Checkbox(
-                              checkColor: Colors.white,
-                              activeColor: Colors.deepOrange,
-                              value: isChecked,
-                              onChanged: (bool? value) {
-                                setState(() {
-                                  isChecked = value!;
-                                });
-                              },
-                            ),
+                          Checkbox(
+                            checkColor: Colors.white,
+                            activeColor: gradPurple,
+                            value: checkBoxValue,
+                            onChanged: (bool? value) {
+                              setState(() {
+                                checkBoxValue = value!;
+                              });
+                            },
                           ),
                           const SizedBox(width: 5),
                           const Text("Remember Me",
@@ -143,56 +144,48 @@ class LoginScreen extends StatelessWidget {
                   Wrap(
                     direction: Axis.horizontal,
                     children: [
-                      Flexible(
-                        flex: 1,
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/home-screen');
-                          },
-                          child: Container(
-                            height: 55,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                gradient: const LinearGradient(
-                                  begin: Alignment.bottomLeft,
-                                  end: Alignment.topRight,
-                                  colors: [gradPurple, gradPink, gradYellow],
-                                )),
-                            child: const Center(
-                                child: Text(
-                              "Login",
-                              style:
-                                  TextStyle(fontSize: 15, color: Colors.white),
-                            )),
-                            width: MediaQuery.of(context).size.width * .15,
-                            margin: const EdgeInsets.all(0),
-                          ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/home-screen');
+                        },
+                        child: Container(
+                          height: 55,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              gradient: const LinearGradient(
+                                begin: Alignment.bottomLeft,
+                                end: Alignment.topRight,
+                                colors: [gradPurple, gradPink, gradYellow],
+                              )),
+                          child: const Center(
+                              child: Text(
+                            "Login",
+                            style: TextStyle(fontSize: 15, color: Colors.white),
+                          )),
+                          width: MediaQuery.of(context).size.width * .15,
+                          margin: const EdgeInsets.all(0),
                         ),
                       ),
                       const SizedBox(width: 5),
-                      Flexible(
-                        flex: 1,
-                        child: InkWell(
-                          onTap: () {},
-                          child: Container(
-                            height: 55,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.white,
-                              border: Border.all(
-                                color: Colors.black,
-                                width: 1,
-                              ),
+                      InkWell(
+                        onTap: () {},
+                        child: Container(
+                          height: 55,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.white,
+                            border: Border.all(
+                              color: Colors.black,
+                              width: 1,
                             ),
-                            child: const Center(
-                                child: Text(
-                              "Sign Up",
-                              style:
-                                  TextStyle(fontSize: 15, color: Colors.black),
-                            )),
-                            width: MediaQuery.of(context).size.width * .15,
-                            margin: const EdgeInsets.all(0),
                           ),
+                          child: const Center(
+                              child: Text(
+                            "Sign Up",
+                            style: TextStyle(fontSize: 15, color: Colors.black),
+                          )),
+                          width: MediaQuery.of(context).size.width * .15,
+                          margin: const EdgeInsets.all(0),
                         ),
                       ),
                     ],
@@ -235,8 +228,6 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
-
-  void setState(Null Function() param0) {}
 }
 
 Container buttonContainerNumber(BuildContext context, String value,
