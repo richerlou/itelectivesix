@@ -48,28 +48,22 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Wrap(direction: Axis.horizontal, children: [
                         Row(
                           children: [
-                            Flexible(
-                              flex: 1,
-                              child: buttonContainerNumber(
-                                context,
-                                "Login with Facebook",
-                                fbBlue,
-                                Colors.white,
-                                MediaQuery.of(context).size.width * .15,
-                                0,
-                              ),
+                            buttonContainerNumber(
+                              context,
+                              "Login with Facebook",
+                              fbBlue,
+                              Colors.white,
+                              MediaQuery.of(context).size.width * .15,
+                              0,
                             ),
                             const SizedBox(width: 5),
-                            Flexible(
-                              flex: 1,
-                              child: buttonContainerNumber(
-                                context,
-                                "Login with Xing",
-                                xingGreen,
-                                Colors.white,
-                                MediaQuery.of(context).size.width * .15,
-                                0,
-                              ),
+                            buttonContainerNumber(
+                              context,
+                              "Login with Xing",
+                              xingGreen,
+                              Colors.white,
+                              MediaQuery.of(context).size.width * .15,
+                              0,
                             ),
                           ],
                         ),
@@ -210,18 +204,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
               const SizedBox(width: 30),
-              Flexible(
-                flex: 3,
-                child: Container(
-                    width: MediaQuery.of(context).size.width / 1,
-                    height: MediaQuery.of(context).size.height,
-                    decoration: const BoxDecoration(
-                        gradient: LinearGradient(
-                      begin: Alignment.bottomLeft,
-                      end: Alignment.topRight,
-                      colors: [gradYellow, gradPink, gradPurple],
-                    ))),
-              ),
+              Container(
+                  width: 796,
+                  height: MediaQuery.of(context).size.height,
+                  decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.topRight,
+                    colors: [gradYellow, gradPink, gradPurple],
+                  ))),
             ],
           ),
         ),
