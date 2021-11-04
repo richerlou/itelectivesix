@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:itelectivesix/constants.dart';
 import 'package:itelectivesix/services/firebase_authentication.dart';
-import 'package:itelectivesix/screens/login_screen.dart';
+import 'package:itelectivesix/views/signin/login_ui.dart';
+import 'package:itelectivesix/views/admin/createitem.dart';
+import 'package:itelectivesix/constants.dart';
 
 const padding = EdgeInsets.symmetric(horizontal: 20);
 
-class ProfileDrawer extends StatefulWidget {
-  const ProfileDrawer({Key? key}) : super(key: key);
-  @override
-  _ProfileDrawerState createState() => _ProfileDrawerState();
-}
+class MainDrawer extends StatelessWidget {
+  const MainDrawer({Key? key}) : super(key: key);
 
-class _ProfileDrawerState extends State<ProfileDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -30,8 +27,8 @@ class _ProfileDrawerState extends State<ProfileDrawer> {
                 child: Row(
                   children: [
                     Container(
-                      width: 35,
-                      height: 35,
+                      width: 45,
+                      height: 45,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
@@ -67,6 +64,23 @@ class _ProfileDrawerState extends State<ProfileDrawer> {
                 text: 'Favorites', icon: Icons.favorite_border_rounded),
             buildMenuItem(text: 'Recently Viewed', icon: Icons.history_rounded),
             buildMenuItem(text: 'Settings', icon: Icons.settings_rounded),
+            ListTile(
+              leading: Icon(
+                Icons.edit,
+                color: Colors.white,
+              ),
+              hoverColor: Colors.white70,
+              title: Text(
+                'Add Item',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              onTap: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => CreateItem()));
+              },
+            ),
             const SizedBox(height: 24),
             Container(
                 padding: padding, child: const Divider(color: Colors.white70)),
@@ -93,6 +107,34 @@ class _ProfileDrawerState extends State<ProfileDrawer> {
           ],
         ),
       ),
+
+      // ListView(
+      //   padding: EdgeInsets.zero,
+      //   children: [
+      //     const DrawerHeader(
+      //       decoration: BoxDecoration(
+      //         color: Colors.black45,
+      //       ),
+      //       child: Text('Drawer Header'),
+      //     ),
+      //     ListTile(
+      //       title: const Text('Item 1'),
+      //       onTap: () {
+      //         // Update the state of the app.
+      //         // ...
+      //       Navigator.pop(context);
+      //       },
+      //     ),
+      //     ListTile(
+      //       title: const Text('Item 2'),
+      //       onTap: () {
+      //         // Update the state of the app.
+      //         // ...
+      //         Navigator.pop(context);
+      //       },
+      //     ),
+      //   ],
+      // ),
     );
   }
 

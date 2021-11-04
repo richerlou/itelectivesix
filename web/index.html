@@ -14,7 +14,7 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
-  <base href="$FLUTTER_BASE_HREF">
+  <!-- <base href="$FLUTTER_BASE_HREF"> -->
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -28,11 +28,31 @@
 
   <title>itelectivesix</title>
   <link rel="manifest" href="manifest.json">
+  <script src ="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src ="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+  <script src ="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+
+  <meta name="google-signin-client_id" 
+  content="875766960846-pmdbjm8lcsh0176kghka26p66a02r4p6.apps.googleusercontent.com">
 </head>
 <body>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyAgvOLNxyfM_OQq8OEyiMMIyJ25nb5ClzQ",
+  authDomain: "housy-appliances.firebaseapp.com",
+  projectId: "housy-appliances",
+  storageBucket: "housy-appliances.appspot.com",
+  messagingSenderId: "875766960846",
+  appId: "1:875766960846:web:0cafde52db51b79035769f",
+  measurementId: "G-WFX88YGGNW"
+};
+firebase.initializeApp(firebaseConfig);
+</script>
+
+    
   <script>
     var serviceWorkerVersion = null;
     var scriptLoaded = false;

@@ -228,7 +228,7 @@ class _LoginScreenStateState extends State<_LoginScreenState> {
               ),
               const SizedBox(width: 30),
               Container(
-                  width: 795,
+                  width: MediaQuery.of(context).size.width * .4,
                   height: MediaQuery.of(context).size.height,
                   decoration: const BoxDecoration(
                       gradient: LinearGradient(
